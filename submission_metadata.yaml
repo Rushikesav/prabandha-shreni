@@ -6,22 +6,22 @@
 # ============================================================================
 # Team identity — FILL IN BEFORE SUBMITTING
 # ============================================================================
-team_name: "your-team-name-here"
+team_name: "Prabandhaśreṇī"
 
 primary_contact:
-  name: "Rushikesav"
-  email: "primary@example.com"   # fill in
-  phone: "+91-XXXXXXXXXX"        # fill in
+  name: "Rushikesav Gangineni"
+  email: "gnginenirushikesav@gmail.com"  
+  phone: "+91-9866451878"        
 
 team_members:
-  - name: "Rushikesav"
-    email: "member1@example.com"   # fill in
-    role: "ML Engineer"
+  - name: "Rushikesav Gangineni"
+    email: "gnginenirushikesav@gmail.com"   
+    role: "Student"
 
 # ============================================================================
 # Code and reproducibility
 # ============================================================================
-github_repo: "https://github.com/YOUR_USERNAME/YOUR_REPO"   # fill in
+github_repo: "https://github.com/Rushikesav/prabandha-shreni"   
 sandbox_link: "https://huggingface.co/spaces/YOUR_USERNAME/redrob-ranker"   # fill in — see Section 10.5
 
 reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
