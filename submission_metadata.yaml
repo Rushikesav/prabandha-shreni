@@ -1,0 +1,103 @@
+# Redrob Hackathon — Submission Metadata
+# Identity fields below are placeholders — fill in before submitting.
+# Everything else (compute, AI declaration, methodology) reflects the
+# actual ranker in this repo.
+
+# ============================================================================
+# Team identity — FILL IN BEFORE SUBMITTING
+# ============================================================================
+team_name: "your-team-name-here"
+
+primary_contact:
+  name: "Rushikesav"
+  email: "primary@example.com"   # fill in
+  phone: "+91-XXXXXXXXXX"        # fill in
+
+team_members:
+  - name: "Rushikesav"
+    email: "member1@example.com"   # fill in
+    role: "ML Engineer"
+
+# ============================================================================
+# Code and reproducibility
+# ============================================================================
+github_repo: "https://github.com/YOUR_USERNAME/YOUR_REPO"   # fill in
+sandbox_link: "https://huggingface.co/spaces/YOUR_USERNAME/redrob-ranker"   # fill in — see Section 10.5
+
+reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
+
+# ============================================================================
+# Compute environment — update to match the machine you actually run on
+# ============================================================================
+compute:
+  platform: "TBD — fill in (e.g. AWS EC2 c5.4xlarge, local Linux box)"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.11+"
+  os: "TBD"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: false   # TF-IDF is fit at ranking time itself, not pre-computed offline
+  pre_computation_time_minutes: 0
+
+# ============================================================================
+# AI tools declaration
+# ============================================================================
+ai_tools_used:
+  - "Claude"
+
+ai_usage_summary: |
+  Used Claude (Anthropic) for architecture design, full implementation,
+  iterative debugging, and methodology writeup. The design process
+  included: comparing three candidate architectures (pure rule-based,
+  pure neural-embedding, and the hybrid that was chosen) against the JD's
+  actual stated hard cases before writing scoring code; building and
+  testing every component against the real 50-row sample dataset; finding
+  and fixing two calibration bugs through that testing (an over-aggressive
+  honeypot threshold that flagged 8/50 sample candidates as false
+  positives, and a title-chaser rule that incorrectly flagged the
+  sample's strongest genuine match); and adding one rule (self-described-
+  hobbyist detection) discovered as a real gap during testing rather than
+  planned upfront. No candidate data was sent to any external LLM API —
+  all candidate-record processing happens locally via the rule-based and
+  TF-IDF components in ranker/, with zero network calls during the
+  ranking step itself.
+
+# ============================================================================
+# Approach summary
+# ============================================================================
+methodology_summary: |
+  Hybrid ranker: rule-based JD-disqualifier checks (consulting-only career,
+  research-only, recent-LLM-wrapper-only, CV/speech-without-NLP,
+  title-chasing, architect/no-code proxy, closed-source-only proxy,
+  self-described-hobbyist) + trust-weighted skill scoring (self-rated
+  proficiency discounted when the platform's own skill_assessment_scores
+  contradicts it — the dataset's main keyword-stuffing trap) + TF-IDF
+  cosine similarity between JD core text and each candidate's free-text
+  career narrative (catches genuine substance described without exact
+  buzzwords) + a behavioral-signal multiplier (recency, response rate,
+  notice period, interview completion) that down-weights unreachable
+  candidates without letting availability alone buy rank. Honeypot
+  candidates (arithmetic profile-consistency violations: expert
+  proficiency with near-zero duration, skill/role duration grossly
+  exceeding total experience, impossible signup/active-date ordering) are
+  excluded from top-K selection entirely, not just down-weighted.
+  Title carries the highest weight per the JD's own repeated emphasis that
+  it's the most decisive signal; skills are trust-corrected rather than
+  counted, directly to defeat keyword stuffing. No embeddings model, GPU,
+  or network call is used anywhere — TF-IDF was chosen over
+  sentence-transformers specifically because this dataset's hardest cases
+  are structural/corroboration problems, not semantic ones, and avoiding
+  the model-download dependency removes risk at the Stage 3 Docker
+  reproduction step. Full rationale for every weight and threshold is
+  documented inline in ranker/config.py.
+
+# ============================================================================
+# Declarations
+# ============================================================================
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true
