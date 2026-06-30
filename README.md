@@ -1,6 +1,6 @@
 # Redrob Hackathon — Intelligent Candidate Discovery & Ranking
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/YOUR_USERNAME/YOUR_REPO/main?filepath=sandbox_demo.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Rushikesav/prabandha-shreni/main?filepath=sandbox_demo.ipynb)
 
 A hybrid ranker for the "Senior AI Engineer — Founding Team" JD: rule-based
 JD-disqualifier checks + trust-weighted skill scoring + TF-IDF semantic

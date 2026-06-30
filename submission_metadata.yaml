@@ -6,23 +6,25 @@
 # ============================================================================
 # Team identity — FILL IN BEFORE SUBMITTING
 # ============================================================================
-team_name: "Prabandhaśreṇī"
+team_name: "Prabandha\u015Bre\u1E47\u012B"
 
 primary_contact:
-  name: "Rushikesav Gangineni"
-  email: "gnginenirushikesav@gmail.com"  
-  phone: "+91-9866451878"        
+  name: "Rushikesav"
+  email: "primary@example.com"   # fill in
+  phone: "+91-XXXXXXXXXX"        # fill in
 
 team_members:
-  - name: "Rushikesav Gangineni"
-    email: "gnginenirushikesav@gmail.com"   
-    role: "Student"
+  - name: "Rushikesav"
+    email: "member1@example.com"   # fill in
+    role: "ML Engineer"
 
 # ============================================================================
 # Code and reproducibility
 # ============================================================================
-github_repo: "https://github.com/Rushikesav/prabandha-shreni"   
-sandbox_link: "https://huggingface.co/spaces/YOUR_USERNAME/redrob-ranker"   # fill in — see Section 10.5
+github_repo: "https://github.com/Rushikesav/prabandha-shreni"
+sandbox_link: "https://colab.research.google.com/drive/1kGF-ZOHGQn31YK8zu-OoN5R__PXlgpK1?usp=sharing"
+# Backup sandbox (zero-login, builds live from the repo, see README):
+# https://mybinder.org/v2/gh/Rushikesav/prabandha-shreni/main?filepath=sandbox_demo.ipynb
 
 reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
 
