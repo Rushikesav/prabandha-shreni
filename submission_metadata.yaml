@@ -6,17 +6,17 @@
 # ============================================================================
 # Team identity — FILL IN BEFORE SUBMITTING
 # ============================================================================
-team_name: "Prabandha\u015Bre\u1E47\u012B"
+team_name: "Prabandhaśreṇī"
 
 primary_contact:
-  name: "Rushikesav"
-  email: "primary@example.com"   # fill in
-  phone: "+91-XXXXXXXXXX"        # fill in
+  name: "Rushikesav Gangineni"
+  email: "gnginenirushikesav@gmail.com"   
+  phone: "+91-9866451878"        
 
 team_members:
-  - name: "Rushikesav"
-    email: "member1@example.com"   # fill in
-    role: "ML Engineer"
+  - name: "Rushikesav Gangineni"
+    email: "gngninenirushikesav@gmail.com"   
+    role: "Student"
 
 # ============================================================================
 # Code and reproducibility
